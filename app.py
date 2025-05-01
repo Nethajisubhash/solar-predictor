@@ -31,7 +31,6 @@ def predict():
         input_data = np.array([[temperature, humidity, irradiation, total_minutes]])
 
         # Make prediction
-        prediction = [123.45]  # dummy value
         prediction = model.predict(input_data)
 
         prediction = np.expm1(prediction) - 1
@@ -39,13 +38,14 @@ def predict():
         # Convert prediction to float and round
         predicted_value = float(np.round(prediction[0], 2))
         
+             
         return render_template('index.html', prediction=predicted_value,
                                              temperature=temperature, 
                                              humidity=humidity, 
                                              irradiation=irradiation, 
-                                             time=time_of_day)     
-        except Exception as e:
-              return render_template('index.html', prediction=f"Error: {e}")
+                                             time=time_of_day)
+    except Exception as e:
+        return str(e)
 
 if __name__ == '__main__':
     app.run(debug=True)
