@@ -40,13 +40,8 @@ def predict():
         predicted_value = float(np.round(prediction[0], 2))
         
              
-        return render_template('index.html', prediction=predicted_value,
-                                             temperature=temperature, 
-                                             humidity=humidity, 
-                                             irradiation=irradiation, 
-                                             time=time_of_day)
-    except Exception as e:
-        return str(e)
+        except Exception as e:
+    return render_template('index.html', prediction=f"Error: {e}")
 
 if __name__ == '__main__':
     app.run(debug=True)
