@@ -45,7 +45,7 @@ def predict():
                                              irradiation=irradiation, 
                                              time=time_of_day)
     except Exception as e:
-        return str(e)
+        return render_template('index.html', prediction=f"Error: {e}")
 
 if __name__ == '__main__':
     app.run(debug=True)
