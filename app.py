@@ -31,6 +31,7 @@ def predict():
         input_data = np.array([[temperature, humidity, irradiation, total_minutes]])
 
         # Make prediction
+        prediction = [123.45]  # dummy value
         prediction = model.predict(input_data)
 
         prediction = np.expm1(prediction) - 1
